@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+		</script>
+
+		<style>
+			.title {
+				width: 500px;
+				text-align: center;
+				height: 40px;
+				background-color: green;
+			}
+
+			.box1 {
+				width: 200px;
+				height: 150px;
+				background-color: yellow;
+				font: 20px courier;
+			}
+
+			.box2 {
+				width: 200px;
+				height: 150px;
+				background-color: pink;
+				font: 20px arial;
+			}
+
+			.div1 {
+				width: 400px;
+				height: 40px;
+				background-color: purple;
+				font: 30px arial;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		
+		<h1 class="title">jQuery Events: click here!</h1>
+
+		<button class="box1">Click here to see what happens!</button>
+
+		<br>
+
+		<button class="box2">Also click here!</button>
+
+		<div class="div1">Mouse Over this</div>
+
+		<script>
+		
+			$(document).ready(function() {
+				console.log("page is ready")
+			}); 
+
+			$(".title").click(function() {
+				alert("Thanks for clicking.")
+			});
+
+			$(".box1").click(function() {
+				$(".box1").fadeOut(2000).fadeIn(2000).slideUp(2000).slideDown(2000);
+			});
+
+
+			$(".box2").click(function() {
+				$(".box2").animate( {
+					opacity: 0.25,
+					width: 100
+				}, 3000);
+				});
+
+			$(".div1").on({ 
+				mouseenter: function(){
+       				$(this).css("background-color", "orange");
+   				}, 
+    			mouseleave: function(){
+        			$(this).css("background-color", "purple");
+    			}
+			});
+		</script>
+		
+	</body>
+
+</html>

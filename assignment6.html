@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+		</script>
+
+		<style>
+			.color-block {
+				width: 200px;
+				height: 100px;
+				background-color: pink;
+			}
+
+			.block2 {
+				width: 200px;
+				height: 100px;
+				background-color: yellow;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<h1 id="welcome">Welcome to my Page</h1> 
+		<p class="header">This is my first paragraph.</p> 
+
+		<div class="color-block">this is a color block</div>
+
+		<div class="block2">block2</div>
+
+		<script>
+		//Selecting elements with jQuery:  If I wanted to select the first paragraph, I would type $(".header")into the console, and it would return the elements of that paragraph in an array
+
+			//this prevents any jQuery code from running before the document is finished loading
+			$(document).ready(function() {
+				//this is code that will run when page is ready
+				console.log("page is ready")
+			}); 
+
+			
+			//this is an example of a callback
+			//it is subtracting 2 from 10 in the console, and then calling the function hithere
+			var x = function() {
+				alert("Hi there!");
+			}
+
+			function subtractandthenalert(x, y, hithere) {
+				console.log(x - y);
+				hithere();
+			}
+
+			subtractandthenalert(10, 2, x); 
+
+			
+			//Hiding an element:  if I wanted to hide the color block, I would type $(".color-block").hide() into the console or in the script
+
+			//Showing an element:  if I wanted to show the color block, I would then type $(".color-block").show() into the console or in the script, and it woud reappear
+
+			//Fade out function:  if I wanted to fade out the color block, I would type $(".color-block").fadeOut("number of milliseconds") into the console or in the script
+
+			//Fade in function: if I wanted to fade in the color block, I would type $(".color-block").fadeIn("number of milliseconds") into the console or in the script, and it would fade back onto the screen
+
+			//slideUp function:  if I wanted to make the color block disappear off the screen sliding upwards, I would type $(".color-block").slideUp("number of milliseconds")
+
+			//slideDown function:  if I typed $(".color-block").slideDown("number of milliseconds"), it would slide back down and reappear
+
+
+			//Click Event with animation: this will cause the color block to fade away and become narrower when you click on the "Welcome to my Page" header
+			$("#welcome").click(function() {
+				$(".color-block").animate({
+				opacity: 0.25,
+				width: 100
+				}, 3000);
+			});
+
+			//Using a callback for a sequence: this will cause the second block to first increase in width, and then fade
+			$(".block2").animate({
+				width: 500
+			}, 3000, function(){
+				$(".block2").animate({
+					opacity: 0.25	
+				}, 3000);
+			});
+		</script>
+	</body>
+
+</html>
